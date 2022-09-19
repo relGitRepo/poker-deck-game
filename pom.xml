@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.goto.apis</groupId>
 	<artifactId>poker-deck-game</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>poker-deck-game</name>
 	<description>Deck of cards game Rest API</description>
 	

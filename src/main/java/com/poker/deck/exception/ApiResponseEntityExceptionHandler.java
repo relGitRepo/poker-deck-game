@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 @RestController
-public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
+public class ApiResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(Exception.class)
 	public final ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request) {
@@ -22,7 +22,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 	}
 
 	@ExceptionHandler(GameNotFoundException.class)
-	public final ResponseEntity<Object> handleCustomerNotFoundExceptions(GameNotFoundException ex,
+	public final ResponseEntity<Object> handleGameNotFoundExceptions(GameNotFoundException ex,
 			WebRequest request) {
 		ErrorDetails exceptionResponse = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
 
@@ -30,7 +30,14 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 	}
 
 	@ExceptionHandler(DeckNotFoundException.class)
-	public final ResponseEntity<Object> handleFileNotFoundExceptions(DeckNotFoundException ex, WebRequest request) {
+	public final ResponseEntity<Object> handleDeckNotFoundExceptions(DeckNotFoundException ex, WebRequest request) {
+		ErrorDetails exceptionResponse = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
+
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(PlayerNotFoundException.class)
+	public final ResponseEntity<Object> handlePlayerNotFoundExceptions(PlayerNotFoundException ex, WebRequest request) {
 		ErrorDetails exceptionResponse = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
 
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);

@@ -68,10 +68,10 @@ public class Card implements Comparable<Card> {
 	
 	/**
 	 * Returns a string representation of this card.
-	 * @return samples: "Card[Ace-Hearts]", "Card[7-Diamonds]".
+	 * @return samples: "Card[Ace-Hearts]", "Card[SEVEN-Diamonds]".
 	 */
 	@Override
 	public String toString() {
-		return String.format("Card[%s-%s]", getFaceValueAsString(), this.suit.name());
+		return String.format("Card[%s-%s]", this.faceValue.name(), this.suit.name());
 	}
 }

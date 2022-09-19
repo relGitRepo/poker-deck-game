@@ -1,7 +1,7 @@
 package com.poker.deck.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 public class Game {
@@ -10,12 +10,12 @@ public class Game {
 
 	private final Shoe shoe;
 
-	private List<Player> players;
+	private Set<Player> players;
 	
 	public Game() {
 		this.gameId = UUID.randomUUID().toString(); 
 		this.shoe = new Shoe();
-		this.players = new ArrayList<Player>();
+		this.players = new HashSet<Player>();
 	}
 
 	public String getGameId() {
@@ -30,11 +30,17 @@ public class Game {
 		return shoe;
 	}
 	
-	public List<Player> getPlayers() {
+	public Set<Player> getPlayers() {
 		return players;
 	}
 	
-	public void setPlayers(List<Player> players) {
+	public void setPlayers(Set<Player> players) {
 		this.players = players;
+	}
+	
+	public void checkEmptyShoe() {
+		if (this.getShoe().getCards() == null || this.getShoe().getCards().isEmpty()) {
+			throw new IllegalStateException("Game Deck empty. No card is dealt.");
+		}
 	}
 }
