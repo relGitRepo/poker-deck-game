@@ -117,7 +117,8 @@ public class GameRepositoryImpl implements IGameRepository {
 	}
 
 	@Override
-	public void removePlayerFromGame(String gameId, String playerId) throws GameNotFoundException, PlayerNotFoundException {
+	public void removePlayerFromGame(String gameId, String playerId)
+			throws GameNotFoundException, PlayerNotFoundException {
 		Game game = findGameById(gameId);
 		Player player = findPlayerById(game, playerId)
 				.orElseThrow(() -> new PlayerNotFoundException("Player#" + playerId + " not found."));
@@ -126,7 +127,8 @@ public class GameRepositoryImpl implements IGameRepository {
 	}
 
 	@Override
-	public void dealCardsToPlayer(String gameId, String playerId, int nbrCards) throws GameNotFoundException, PlayerNotFoundException {
+	public void dealCardsToPlayer(String gameId, String playerId, int nbrCards)
+			throws GameNotFoundException, PlayerNotFoundException {
 		if (nbrCards <= 0) {
 			throw new IllegalArgumentException("Number of Cards to be dealt must be greater than 0.");
 		}
@@ -150,7 +152,8 @@ public class GameRepositoryImpl implements IGameRepository {
 	}
 
 	@Override
-	public List<Card> getPlayerCardList(String gameId, String playerId)	throws GameNotFoundException, PlayerNotFoundException {
+	public List<Card> getPlayerCardList(String gameId, String playerId)
+			throws GameNotFoundException, PlayerNotFoundException {
 		Game game = findGameById(gameId);
 		Player player = findPlayerById(game, playerId)
 				.orElseThrow(() -> new PlayerNotFoundException("Player#" + playerId + " not found."));

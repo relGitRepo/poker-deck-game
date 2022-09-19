@@ -115,7 +115,7 @@ public class GameController {
 	}
 
 	@GetMapping(value = "/game/{id}/players")
-	List<Player> getListPlayers(@PathVariable("id") String gameId) {
+	List<Player> getPlayers(@PathVariable("id") String gameId) {
 		return gameRepository.getPlayerListSortedbyScore(gameId);
 	}
 }

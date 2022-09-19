@@ -14,7 +14,7 @@ public class Util {
 			for (int i = cards.size() - 1; i > 0 ; i--) {
 				int randomCardIndex = random.nextInt(i + 1);
 
-				// swap the cards
+				// Swap the cards
 				Card temp = cards.get(i);
 				cards.set(i, cards.get(randomCardIndex));
 				cards.set(randomCardIndex, temp);

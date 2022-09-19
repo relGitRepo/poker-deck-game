@@ -5,10 +5,13 @@ import java.util.List;
 
 public class Player implements Comparable<Player>{
 
+	/** The player ID */
 	private String playerId;
 
+	/** The list of cards holding by the player */
 	private List<Card> hand = new ArrayList<Card>();
 
+	/** The player score representing the total added value of all his card's face value */
 	private int score = 0;
 
 	public Player(String playerId) {

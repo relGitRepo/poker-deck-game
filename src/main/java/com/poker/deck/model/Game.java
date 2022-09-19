@@ -6,10 +6,13 @@ import java.util.UUID;
 
 public class Game {
 	
+	/** The game ID */
 	private String gameId;
 
+	/** The game deck */
 	private final Shoe shoe;
 
+	/** The list of players in the game */
 	private Set<Player> players;
 	
 	public Game() {

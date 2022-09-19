@@ -5,7 +5,10 @@ import com.poker.deck.type.Suit;
 
 public class Card implements Comparable<Card> {
 
+	/** The card value */
 	private FaceValue faceValue;
+
+	/** The card suit */
 	private Suit suit;
 
 	public Card(final FaceValue faceValue, final Suit suit) {
@@ -45,7 +48,7 @@ public class Card implements Comparable<Card> {
 			return false;
 		return true;
 	}
-	
+
 	/**
 	 * Compares two cards numerically by their {@code Suit} then {@code FaceValue}.
 	 */
@@ -54,20 +57,22 @@ public class Card implements Comparable<Card> {
 		int res = Integer.compare(this.getSuit().getCode(), otherCard.getSuit().getCode());
 		return res != 0 ? res : Integer.compare(this.getFaceValue().getValue(), otherCard.getFaceValue().getValue());
 	}
-	
-	 /**
-     * Returns a string representation of the card's faceValue.
-     * @return "Ace", "2",..., "10", "Jack", "Queen" or "King".  
-     */
+
+	/**
+	 * Returns a string representation of the card's faceValue.
+	 * 
+	 * @return "Ace", "2",..., "10", "Jack", "Queen" or "King".
+	 */
 	public String getFaceValueAsString() {
 		if (this.faceValue.getValue() >= 2 && this.faceValue.getValue() <= 10) {
 			return String.valueOf(this.faceValue.getValue());
 		}
 		return this.faceValue.name();
 	}
-	
+
 	/**
 	 * Returns a string representation of this card.
+	 * 
 	 * @return samples: "Card[Ace-Hearts]", "Card[SEVEN-Diamonds]".
 	 */
 	@Override

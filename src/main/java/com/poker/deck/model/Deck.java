@@ -10,9 +10,16 @@ import com.poker.deck.type.Suit;
 @JsonFilter("DeckFilter")
 public class Deck {
 
+	/** The deck ID */
 	private String deckId;
+	
+	/** The list of cards in the Deck */
 	private final Stack<Card> cards;
+	
+	/** The flag to check if the Deck is shuffled */
 	private boolean shuffled;
+	
+	/** The game ID associated to the Deck */
 	private String gameId;
 
 	public Deck() {
